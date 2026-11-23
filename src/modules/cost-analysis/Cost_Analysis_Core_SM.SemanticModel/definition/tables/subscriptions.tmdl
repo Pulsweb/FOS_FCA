@@ -61,5 +61,3 @@ table subscriptions
 			schemaName: cost
 			expressionSource: DatabaseQuery
 
-	annotation PBI_ResultType = Table
-

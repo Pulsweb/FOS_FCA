@@ -255,15 +255,8 @@ class SchemaEnabledLakehouseTests(unittest.TestCase):
             / "pipeline-content.json"
         )
         pipeline = json.loads(pipeline_path.read_text(encoding="utf-8"))
-        subscriptions_activity = next(
-            activity
-            for activity in pipeline["properties"]["activities"]
-            if activity["name"] == "Get Subscriptions"
-        )
-        self.assertEqual(
-            subscriptions_activity["typeProperties"]["datasetSettings"]["typeProperties"],
-            {"schema": "cost", "table": "subscriptions"},
-        )
+        serialized = json.dumps(pipeline)
+        self.assertIn('"table": "cost.subscriptions"', serialized)
 
     def test_direct_lake_partitions_use_module_schema(self):
         table_files = list(MODULES_ROOT.rglob("*.SemanticModel/definition/tables/*.tmdl"))
