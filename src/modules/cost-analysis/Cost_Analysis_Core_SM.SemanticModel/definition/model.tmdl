@@ -14,6 +14,8 @@ annotation TabularEditor_SerializeOptions = {"IgnoreInferredObjects":true,"Ignor
 
 annotation __TEdtr = 1
 
+annotation __PBI_ServiceStoredInTmdl = reserved
+
 ref table calendar
 ref table meters
 ref table cost_analysis
@@ -24,7 +26,6 @@ ref table resources
 ref table quota_fabric
 ref table reservations
 ref table reservation_usage
-ref table azuretags
 
 ref cultureInfo en-US
 
